@@ -6,16 +6,23 @@
 </button>
 <form method="post">
     @Html.AntiForgeryToken()
-    <select class="mb-3 form-select" name="idzapatilla">
-        @foreach (Zapatilla zap in Model)
-        {
-            <option value="@zap.IdProducto">@zap.Nombre</option>
-        }
-    </select>
+    <div class="row">
+        <div class="col-6">
+            <select class="mb-3 form-select" name="idzapatilla">
+                @foreach (Zapatilla zap in Model)
+                {
+                    <option value="@zap.IdProducto">@zap.Nombre</option>
+                }
+            </select>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-primary w-100">
+                Insertar imágenes
+            </button>
+        </div>
+    </div>
     <input type="text" name="imagenes" class="form-control" />
-    <button class="btn btn-primary mt-3">
-        Insertar imágenes
-    </button>
+
 </form>
 
 
