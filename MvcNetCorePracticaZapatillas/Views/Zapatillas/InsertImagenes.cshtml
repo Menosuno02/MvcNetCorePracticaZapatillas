@@ -1,0 +1,32 @@
+﻿@model List<Zapatilla>
+
+<h1>Insertar nuevas imagenes</h1>
+<button id="btnNuevaCaja" class="btn btn-secondary my-3">
+    Nueva caja imagen
+</button>
+<form method="post">
+    @Html.AntiForgeryToken()
+    <select class="mb-3 form-select" name="idzapatilla">
+        @foreach (Zapatilla zap in Model)
+        {
+            <option value="@zap.IdProducto">@zap.Nombre</option>
+        }
+    </select>
+    <input type="text" name="imagenes" class="form-control" />
+    <button class="btn btn-primary mt-3">
+        Insertar imágenes
+    </button>
+</form>
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            $("#btnNuevaCaja").on("click", function () {
+                let caja = $("<input>").attr("type", "text").attr("name", "imagenes")
+                    .addClass("form-control mt-3");
+                $("form").append(caja);
+            });
+        });
+    </script>
+}
